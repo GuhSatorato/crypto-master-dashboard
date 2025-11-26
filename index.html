@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Master Dashboard Pro</title>
+
+    <link rel="shortcut icon" href="crypto-logo.png">
+
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="ticker-wrap">
+        <div class="ticker" id="ticker-content">
+            <div class="ticker-item">Carregando mercado...</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <h1>Crypto<span>Master</span></h1>
+                <div class="status-indicator">● BRL & USD Live</div>
+            </div>
+            
+            <div class="sentiment-card">
+                <div class="sentiment-info">
+                    <span class="sentiment-label">Sentimento:</span>
+                    <span class="sentiment-value" id="fng-value">...</span>
+                </div>
+                <div class="sentiment-bar-bg">
+                    <div class="sentiment-bar-fill" id="fng-bar"></div>
+                </div>
+            </div>
+        </header>
+
+        <section class="main-display">
+            <div class="card chart-card">
+                <div class="card-header">
+                    <div class="chart-selector-wrapper">
+                        <label>Ativo em destaque:</label>
+                        <select id="main-chart-select" class="chart-dropdown">
+                            </select>
+                    </div>
+
+                    <div class="price-container">
+                        <h2 id="current-price-brl" class="price-highlight">R$ 0,00</h2>
+                        <span id="current-price-usd" class="sub-price">$0.00</span>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="coinChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="bottom-grid">
+            
+            <div class="card calculator">
+                <h3>💰 Calculadora de ROI</h3>
+                
+                <div class="form-group">
+                    <label>Moeda para calcular</label>
+                    <select id="crypto-select"></select>
+                </div>
+
+                <div class="input-row">
+                    <div class="form-group">
+                        <label>Qtd. (Tokens)</label>
+                        <input type="number" id="amount-input" placeholder="0.5" step="any">
+                    </div>
+                    <div class="form-group">
+                        <label>Preço Pago (USD)</label>
+                        <input type="number" id="buy-price-input" placeholder="50000" step="any">
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button onclick="calculateProfit()">Calcular</button>
+                    <button onclick="clearData()" class="btn-outline">Limpar</button>
+                </div>
+
+                <div id="result-area" class="result-box hidden">
+                    <div class="result-row">
+                        <span>Total (BRL):</span>
+                        <span id="current-value-brl" class="highlight-val">R$ 0,00</span>
+                    </div>
+                    <div class="result-row">
+                        <span>Lucro/Prejuízo:</span>
+                        <span id="profit-value">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card top-list">
+                <div class="list-header">
+                    <h3>Mercado</h3>
+                    <input type="text" id="search-input" placeholder="Buscar (ex: SOL)..." onkeyup="filterCoins()">
+                </div>
+                <ul id="top-coins-list">
+                    </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer class="app-footer">
+        <p>Desenvolvido por <strong class="dev-name">Gustavo H. Satorato</strong> &copy; 2025</p>
+        <div class="social-links">
+            <a href="https://github.com/GuhSatorato">GitHub</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/in/gustavo-satorato">LinkedIn</a>
+            <span>|</span>
+            <a href="https://www.instagram.com/guh_satorato">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
